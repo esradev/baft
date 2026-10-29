@@ -1,0 +1,6 @@
+{
+  "name": "Baft - Social Commerce Manager",
+  "description": "Unified social commerce operating system for Instagram & Telegram merchants with Persian RTL interface, AI order parsing, multi-channel inbox, shipping tracking, inventory & CRM.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
