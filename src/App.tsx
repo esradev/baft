@@ -45,10 +45,6 @@ export function App() {
     }
   }, [theme]);
 
-  const toggleTheme = () => {
-    setTheme(theme === 'light' ? 'dark' : 'light');
-  };
-
   // Order Handlers
   const handleUpdateOrderStatus = (orderId: string, newStatus: OrderStatus) => {
     setOrders(orders.map((o) => (o.id === orderId ? { ...o, status: newStatus } : o)));
@@ -152,11 +148,17 @@ export function App() {
       <div className="flex flex-1 flex-col overflow-hidden min-w-0">
         {/* Top Navbar */}
         <Navbar
-          theme={theme}
-          onToggleTheme={toggleTheme}
+          darkMode={theme === 'dark'}
+          setDarkMode={(isDark) => setTheme(isDark ? 'dark' : 'light')}
+          storeSettings={mockMerchantProfile}
           onOpenAiScanner={() => setIsAiScannerOpen(true)}
+          onOpenNewOrder={() => {
+            setOrderDraft(undefined);
+            setIsNewOrderModalOpen(true);
+          }}
+          onNavigate={(tab) => setCurrentTab(tab)}
           unreadCount={unreadMessagesCount}
-          merchantName={mockMerchantProfile.storeName}
+          pendingOrdersCount={newOrdersCount}
         />
 
         {/* Dynamic Main View */}

@@ -4,7 +4,6 @@ import {
   Search, 
   Sun, 
   Moon, 
-  Smartphone, 
   Bell, 
   Plus, 
   Store, 
@@ -23,7 +22,6 @@ interface NavbarProps {
   storeSettings: StoreSettings;
   onOpenAiScanner: () => void;
   onOpenNewOrder: () => void;
-  onToggleMobilePreview: () => void;
   onNavigate: (tab: string) => void;
   unreadCount: number;
   pendingOrdersCount: number;
@@ -35,7 +33,6 @@ export const Navbar: React.FC<NavbarProps> = ({
   storeSettings,
   onOpenAiScanner,
   onOpenNewOrder,
-  onToggleMobilePreview,
   onNavigate,
   unreadCount,
   pendingOrdersCount,
@@ -97,15 +94,6 @@ export const Navbar: React.FC<NavbarProps> = ({
         >
           <Plus className="h-4 w-4" />
           <span>ثبت سفارش جدید</span>
-        </button>
-
-        {/* Mobile Companion Simulator Button */}
-        <button
-          onClick={onToggleMobilePreview}
-          className="relative flex h-9 w-9 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-600 transition-colors hover:bg-slate-100 hover:text-slate-900 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700"
-          title="پیش‌نمایش نسخه همراه موبایل"
-        >
-          <Smartphone className="h-4 w-4" />
         </button>
 
         {/* Notifications Popover */}
